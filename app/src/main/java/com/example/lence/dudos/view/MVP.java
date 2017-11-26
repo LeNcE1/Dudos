@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface MVP {
     void showGet(List<String> getList);
-    void showPost(List<String> getList);
+    void showPost(String title);
     void showIsEmpty();
 }

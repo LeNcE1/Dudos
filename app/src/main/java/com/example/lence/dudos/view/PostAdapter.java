@@ -20,29 +20,23 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Holder> {
 
     private List<String> mPostList = new ArrayList<>();
 
-    Presenter mPresenter;
 
-    public PostAdapter(Presenter presenter,List<String> list) {
-        mPresenter = presenter;
-        mPostList =list;
-    }
+    public void addPost(String post){
+        mPostList.add(post);
 
-    public void addPost(List<String> list) {
-        mPostList = list;
     }
 
     @Override
     public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.post_item, parent, false);
 
-
         return new Holder(itemView);
     }
 
     @Override
     public void onBindViewHolder(Holder holder, int position) {
-
-holder.mTitle.setText(mPostList.get(position));
+        position++;
+        holder.mTitle.setText(position+": "+mPostList.get(position-1));
     }
 
     @Override
